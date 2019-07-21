@@ -1,5 +1,5 @@
 
-// option 2 -- ctor
+// option 2 -- ctor, clouser -- setter and getter
 function MobilePhone( model, size, price, number )
 {
   this.size = size
