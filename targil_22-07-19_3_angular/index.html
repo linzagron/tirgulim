@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="angular.js"></script>
+    <script src="bootsrap.js"></script>
+
+    <script src="timeCtrl.js"></script>
+    <script src="nameCtrl.js"></script>
+  </head>
+  <body ng-init="name = 'lin'">
+    <div ng-controller="timeCtrl">
+      <h1>Clock</h1>
+      <h1>{{ time }}</h1>
+      <button ng-click="getTime()">Click to increase time</button>
+    </div>
+    <div ng-controller="nameCtrl">
+      <h1>Name</h1>
+      <h1>{{ name }}</h1>
+      <button ng-click="reverseName()">Click to reverse the name</button>
+    </div>
+  </body>
+</html>
