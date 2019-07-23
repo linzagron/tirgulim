@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dataApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="person.js"></script>
+
+    <script src="myCtrl.js"></script>
+    <script src="myChildCtrl.js"></script>
+    <script src="myBrotherCtrl.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div ng-controller="myCtrl">
+      <h1 class="bigttl">Hello World!</h1>
+      <br />
+      <input ng-model="firstNum" type="text" placeholder="Enter number" />
+
+      <span ng-model="operation">{{ operation }}</span>
+
+      <input ng-model="secondNum" type="text" placeholder="Enter number" />
+
+      <span>=</span>
+
+      <span ng-model="ans">{{ ans }}</span>
+      <br />
+      <br />
+      <button ng-model="ans" ng-click="doCalc()">calculate</button>
+      <br />
+      <br />
+      Choose operation
+      <button ng-model="operation" value="+" ng-click="updateOperation($event)">
+        +
+      </button>
+      <button ng-model="operation" value="-" ng-click="updateOperation($event)">
+        -
+      </button>
+      <button ng-model="operation" value="*" ng-click="updateOperation($event)">
+        *
+      </button>
+      <button ng-model="operation" value="/" ng-click="updateOperation($event)">
+        /
+      </button>
+      <br />
+      <br />
+      <br />
+      <div ng-controller="myChildCtrl">
+        myChildCtrl = <span>{{ ans }}</span>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div ng-controller="myBrotherCtrl">
+      myBrotherCtrl = <span>{{ ans }} </span>
+    </div>
+  </body>
+</html>
