@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dataApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="person.js"></script>
+
+    <script src="formCtrl.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div ng-controller="formCtrl">
+      <h1 class="bigttl">Hello World!</h1>
+      <p>
+        Name :
+        <input
+          ng-model="person.name"
+          type="text"
+          id="nameTxt"
+          placeholder="Enter your name"
+        />
+      </p>
+      <p>
+        Age :
+        <input
+          ng-model="person.age"
+          type="number"
+          id="age"
+          placeholder="Enter your age"
+        />
+      </p>
+      <p>
+        Password :
+        <input
+          ng-model="person.password"
+          type="password"
+          id="password"
+          placeholder="Enter password"
+        />
+      </p>
+      <input ng-model="person.gender" type="radio" name="gender" value="male" />
+      Male<br />
+      <input
+        ng-model="person.gender"
+        type="radio"
+        name="gender"
+        value="female"
+      />
+      Female<br />
+      <input
+        ng-model="person.gender"
+        type="radio"
+        name="gender"
+        value="other"
+      />
+      Other <br /><br />
+      <select id="carType" ng-model="person.carType">
+        <option disabled value="">choose car type</option>
+        <option value="volvo">Volvo</option>
+        <option value="Mitsubishi">Mitsubishi</option>
+        <option value="Honda">Honda</option>
+        <option value="Ford">Ford</option>
+      </select>
+      <br />
+
+      <br />
+      <input
+        ng-model="person.isBike"
+        type="checkbox"
+        id="isBike"
+        value="Bike"
+      />
+      I have a bike<br />
+      <br />
+      <button ng-click="resetAll()">reset all</button>
+
+      <h2>Name = {{ person.name }}</h2>
+      <pr>Person = {{ person | json }}</pr>
+
+      <br />
+      <br />
+    </div>
+  </body>
+</html>
