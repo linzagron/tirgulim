@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="dataApp">
+  <head>
+    <title>Targil</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="angular.js"></script>
+
+    <script src="bootstrap.js"></script>
+
+    <script src="parentCtrl.js"></script>
+  </head>
+  <body>
+    <div ng-controller="parentCtrl">
+      <p class="allEmpty">All Empty</p>
+      <p class="partialEmpty">Partial Empty</p>
+      <p class="invalidAge">Invalid Age</p>
+      <p class="ok">OK</p>
+      <hr />
+      <p>
+        NAME :
+        <input type="text" ng-model="name" />
+      </p>
+      <p>
+        EMAIL :
+        <input type="text" ng-model="email" />
+      </p>
+      <p>
+        AGE :
+        <input type="number" ng-model="age" />
+      </p>
+      <label ng-class="getClass()">Validation lable</label>
+    </div>
+
+    <br />
+  </body>
+</html>
