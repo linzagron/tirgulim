@@ -1,0 +1,19 @@
+.darkPossitive {
+  color: blue;
+}
+
+.clearPossitive {
+  color: green;
+}
+
+.darkNegative {
+  color: brown;
+}
+
+.clearNegative {
+  color: yellow;
+}
+
+.error {
+  color: red;
+}

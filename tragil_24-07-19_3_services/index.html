@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="dataApp">
+  <head>
+    <title>Targil</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="value.service.js"></script>
+    <script src="const.service.js"></script>
+    <script src="factory.service.js"></script>
+    <script src="inputCtrl.js"></script>
+    <script src="sumCtrl.js"></script>
+    <script src="divCtrl.js"></script>
+    <script src="aCtrl.js"></script>
+  </head>
+  <body>
+    <br />
+    <div ng-controller="inputCtrl">
+      Enter a:
+      <input type="number" ng-model="data.aNum" />
+      Enter b:
+      <input type="number" ng-model="data.bNum" />
+      (inputCtrl:) a + b = <span> {{ data.aNum + data.bNum }} </span>
+      <br />
+      <br />
+      <input type="radio" ng-model="color.name" value="clear" />
+      green & yellow
+      <input type="radio" ng-model="color.name" value="dark" />
+      blue & brown
+      <br />
+      <!-- color = {{ color.name | json }} -->
+    </div>
+    <br />
+    <div ng-controller="sumCtrl">
+      (sumCtrl:) a + b =
+      <span ng-class="getClass()">
+        {{ data.aNum + data.bNum }}
+      </span>
+    </div>
+    <br />
+    <div ng-controller="divCtrl">
+      a / b =
+      <span>
+        {{ data.aNum / data.bNum }}
+      </span>
+      <br />
+      <br />
+      <span class="error" ng-show="data.bNum === 0">{{ msg.divError }}</span>
+    </div>
+    <br />
+    <div ng-controller="aCtrl">
+      <!-- <button ng-click="printA()">print</button> -->
+      <br />
+      <br />
+      <span class="error" ng-show="data.aNum < 0">{{ msg.NegAError }}</span>
+    </div>
+    <!-- <div ng-controller="aCtrl">
+      <button ng-click="printA()">print</button>
+      <br />
+      <br />
+      <span class="error" ng-show="data.aNum < 0">{{ msg.NegAError }}</span>
+    </div> -->
+    <br />
+  </body>
+</html>
