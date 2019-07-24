@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="dataApp">
+  <head>
+    <title>Devices</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script src="Mobile.js"></script>
+
+    <script src="myCtrl.js"></script>
+    <script src="brotherCtrl.js"></script>
+  </head>
+  <body>
+    <div ng-controller="myCtrl">
+      <p>{{ devices | json }}</p>
+
+      <!-- <p ng-repeat="m in devices">
+        Name: <b>{{ m.model }}</b> Color: <b>{{ m.color }}</b> Price:
+        <b>{{ m.price }}</b>
+      </p> -->
+      <table border="1">
+        <tr style="background:lightyellow ; padding: 10px">
+          <th>#</th>
+          <th>
+            <!-- This is one way to sort the array -->
+            <!-- <button ng-click="sortBy('model')" ng-model="col">MODEL</button> -->
+            <button ng-click="sort('model')" ng-model="col" class="sortorder">
+              MODEL
+            </button>
+          </th>
+          <th>
+            <!-- This is one way to sort the array -->
+            <!-- <button ng-click="sortBy('color')" ng-model="col">COLOR</button> -->
+            <button ng-click="sort('color')" ng-model="col">COLOR</button>
+          </th>
+          <th>
+            <!-- This is one way to sort the array -->
+            <!-- <button ng-click="sortBy('price')" ng-model="col">PRICE</button> -->
+            <button ng-click="sort('price')" ng-model="col">PRICE</button>
+          </th>
+          <th></th>
+          <th></th>
+        </tr>
+        <!-- This is one way to do the filter - by value and watch -->
+        <!-- <tr ng-repeat="m in devices | orderBy:col | filter:fltrObj"> -->
+        <tr ng-repeat="m in devices | orderBy:col:reverse | filter:search">
+          <td>{{ $index }}</td>
+          <td>
+            <input
+              ng-show="idx === $index"
+              ng-model="editRow.model"
+              type="text"
+            />
+            <!-- <lable ng-show="idx === $index">{{ m.model }}</lable> -->
+          </td>
+          <td>{{ m.color }}</td>
+          <td>{{ m.price }}</td>
+          <td><button ng-click="removeDevice($index)">X</button></td>
+          <td>
+            <button ng-click="openInputs($index)">update</button
+            ><button ng-click="removeDevice($index)">save</button>
+          </td>
+        </tr>
+        <tr>
+          <td class="blank"></td>
+          <!-- This is one way to do the filter - by value and watch -->
+          <!-- <td><input ng-model="fltrModel" type="text" /></td>
+          <td><input ng-model="fltrColor" type="text" /></td>
+          <td><input ng-model="fltrPrice" type="text" /></td> -->
+          <td><input ng-model="search.model" type="text" /></td>
+          <td><input ng-model="search.color" type="text" /></td>
+          <td><input ng-model="search.price" type="text" /></td>
+          <td class="blank"></td>
+          <td class="blank"></td>
+        </tr>
+      </table>
+
+      <div>
+        <p>MODEL = <input ng-model="model" type="text" /></p>
+        <p>COLOR = <input ng-model="color" type="text" /></p>
+        <p>PRICE = <input ng-model="price" type="text" /></p>
+      </div>
+      <button ng-click="addDevice()">Add Device</button>
+      <p>ID = <input ng-model="id" type="text" /></p>
+      <button ng-click="updateDevice()">Update Device</button>
+    </div>
+
+    <br />
+    <div ng-controller="brotherCtrl">
+      NUMBER OF DEVICES =
+      <span ng-model="totalDevices"> {{ devices.length }} </span>
+    </div>
+
+    <br />
+  </body>
+</html>
