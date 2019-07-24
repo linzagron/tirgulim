@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="dataApp">
+  <head>
+    <title>Targil</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="angular.js"></script>
+    <script src="myModule.js"></script>
+    <script src="myModule.js"></script>
+
+    <script src="bootstrap.js"></script>
+
+    <script src="parentCtrl.js"></script>
+  </head>
+  <body>
+    <br />
+    MODULE = dataApp , CONTROLLER = parentCtrl
+    <br />
+    <div ng-controller="parentCtrl as pc">
+      <p nd-model="myP">{{ pc.myP }}</p>
+    </div>
+
+    MODULE = myModule , CONTROLLER = myModuleCtrl
+    <br />
+    <div ng-controller="myModuleCtrl as mmc">
+      <p nd-model="myP">{{ mmc.myP }}</p>
+    </div>
+
+    MODULE = myModuleB , CONTROLLER = myModuleCtrlB
+    <br />
+    <div ng-controller="myModuleCtrlB as mmc">
+      <p nd-model="myP">{{ mmc.myP }}</p>
+    </div>
+
+    <br />
+  </body>
+</html>
