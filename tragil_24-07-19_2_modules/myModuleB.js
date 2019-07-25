@@ -1,6 +1,6 @@
-const thirddModule = angular.module("myModule", []);
+const thirdModule = angular.module("myModuleB", []);
 
-thirddModule.controller("myModuleCtrlB", MyModuleCtrlB);
+thirdModule.controller("myModuleCtrlB", MyModuleCtrlB);
 
 function MyModuleCtrlB() {
   this.myP = "hello from myModuleCtrlB";
