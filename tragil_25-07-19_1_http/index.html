@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="dataApp">
+  <head>
+    <title>Clock!</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script src="constService.service.js"></script>
+    <script src="valueService.service.js"></script>
+    <script src="serviceService.service.js"></script>
+    <script src="parentCtrl.js"></script>
+  </head>
+  <body>
+    <div ng-controller="parentCtrl">
+      <input type="number" ng-model="demandedId" />
+      <button ng-click="getById(demandedId)">get by id</button>
+      <br />
+      <sapn class="httpError" ng-if="todos.httpErrorMsg !== ''">
+        <br />
+        Error:
+        <br />{{ todos.httpErrorMsg }}<br />
+      </sapn>
+      <sapn ng-if="todos.dataById !== ''">
+        <br />
+        Data by id:
+        <br />
+        {{ todos.dataById | json }}<br />
+      </sapn>
+      <br />
+      <table border="1" ng-if="todos.allData !== ''">
+        <tr ng-repeat="todo in todos.allData">
+          <td>{{ todo.userId }}</td>
+          <td>{{ todo.id }}</td>
+          <td>{{ todo.title }}</td>
+          <td>{{ todo.completed }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <br />
+  </body>
+</html>
