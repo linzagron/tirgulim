@@ -55,8 +55,34 @@ function MyCtrl($scope, $rootScope) {
     $scope.devices.splice(idx, 1);
   };
 
+  $scope.idx = -1;
+
   $scope.openInputs = function(idx) {
     $scope.idx = idx;
+  };
+
+  $scope.editRow = { model: "", color: "", price: "" };
+
+  $scope.saveDevice = function(idx) {
+    console.log(
+      $scope.editRow.model,
+      $scope.editRow.color,
+      $scope.editRow.price
+    );
+    if ($scope.editRow.model !== "") {
+      $scope.devices[$scope.devices.length - idx - 1].model =
+        $scope.editRow.model;
+    }
+    if ($scope.editRow.color !== "") {
+      $scope.devices[$scope.devices.length - idx - 1].color =
+        $scope.editRow.color;
+    }
+    if ($scope.editRow.price !== "") {
+      $scope.devices[$scope.devices.length - idx - 1].price =
+        $scope.editRow.price;
+    }
+    $scope.idx = -1;
+    $scope.editRow = { model: "", color: "", price: "" };
   };
 
   // This is one way to sort the array

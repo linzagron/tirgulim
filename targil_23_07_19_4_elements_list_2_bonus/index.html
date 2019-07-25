@@ -13,12 +13,12 @@
   </head>
   <body>
     <div ng-controller="myCtrl">
-      <p>{{ devices | json }}</p>
-
       <!-- <p ng-repeat="m in devices">
         Name: <b>{{ m.model }}</b> Color: <b>{{ m.color }}</b> Price:
         <b>{{ m.price }}</b>
       </p> -->
+      <!-- {{ idx }} -->
+      <h1>Devices</h1>
       <table border="1">
         <tr style="background:lightyellow ; padding: 10px">
           <th>#</th>
@@ -52,14 +52,32 @@
               ng-model="editRow.model"
               type="text"
             />
-            <!-- <lable ng-show="idx === $index">{{ m.model }}</lable> -->
+            <lable ng-show="idx !== $index">{{ m.model }}</lable>
           </td>
-          <td>{{ m.color }}</td>
-          <td>{{ m.price }}</td>
+          <td>
+            <input
+              ng-show="idx === $index"
+              ng-model="editRow.color"
+              type="text"
+            />
+            <lable ng-show="idx !== $index">{{ m.color }}</lable>
+          </td>
+          <td>
+            <input
+              ng-show="idx === $index"
+              ng-model="editRow.price"
+              type="text"
+            />
+            <lable ng-show="idx !== $index">{{ m.price }}</lable>
+          </td>
           <td><button ng-click="removeDevice($index)">X</button></td>
           <td>
-            <button ng-click="openInputs($index)">update</button
-            ><button ng-click="removeDevice($index)">save</button>
+            <button ng-show="idx !== $index" ng-click="openInputs($index)">
+              update
+            </button>
+            <button ng-show="idx === $index" ng-click="saveDevice($index)">
+              save
+            </button>
           </td>
         </tr>
         <tr>
@@ -75,6 +93,8 @@
           <td class="blank"></td>
         </tr>
       </table>
+
+      <p>{{ devices | json }}</p>
 
       <div>
         <p>MODEL = <input ng-model="model" type="text" /></p>
