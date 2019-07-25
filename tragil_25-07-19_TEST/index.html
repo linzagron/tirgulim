@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="dataApp">
+  <head>
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script src="stat.service.js"></script>
+
+    <script src="inputCtrl.js"></script>
+    <script src="statCtrl.js"></script>
+  </head>
+  <body>
+    <br />
+    <div ng-controller="inputCtrl">
+      <table>
+        <tr>
+          <td ng-repeat="m in memorySet track by $index">
+            <button ng-click="getNumber($index)">
+              <span>{{ isIdxInNumbers($index) ? m : "X" }}</span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td ng-repeat="m in memorySet track by $index">
+            <span>{{ m }}</span>
+          </td>
+        </tr>
+      </table>
+
+      <br />
+      <button ng-disabled="!isAble()" ng-click="closeCrads()">
+        close cards
+      </button>
+    </div>
+
+    <br />
+    <div ng-controller="statCtrl">
+      Guesses:<span> {{ statData.stat.guesses }} </span>
+      <br />
+      Corrected:<span> {{ statData.stat.corrected }}</span>
+    </div>
+    <br />
+  </body>
+</html>
