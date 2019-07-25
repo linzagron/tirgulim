@@ -5,7 +5,6 @@ function ACtrl($scope, constService, valueService, factoryService) {
   $scope.msg = constService.msg;
 
   $scope.printA = function() {
-    return 0;
-    // return factoryService.print1toA($scope.data.aNum);
+    $scope.aArr = factoryService.print1toA($scope.data.aNum);
   };
 }

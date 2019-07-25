@@ -1,11 +1,11 @@
-module.factory("factoryService", function(a) {
-  const result = {};
-  result.print1toA = function() {
-    let arr = [];
-    for (let i = 0; i < a; i++) {
-      arr.push(i);
+module.factory("factoryService", function() {
+  return {
+    print1toA: function(a) {
+      let arr = [];
+      for (let i = 1; i <= a; i++) {
+        arr.push(i);
+      }
+      return arr;
     }
-    return arr;
   };
-  return result;
 });

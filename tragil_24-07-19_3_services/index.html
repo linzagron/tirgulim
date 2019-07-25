@@ -8,10 +8,12 @@
     <script src="value.service.js"></script>
     <script src="const.service.js"></script>
     <script src="factory.service.js"></script>
+    <script src="service.service.js"></script>
     <script src="inputCtrl.js"></script>
     <script src="sumCtrl.js"></script>
     <script src="divCtrl.js"></script>
     <script src="aCtrl.js"></script>
+    <script src="bCtrl.js"></script>
   </head>
   <body>
     <br />
@@ -43,23 +45,28 @@
       <span>
         {{ data.aNum / data.bNum }}
       </span>
-      <br />
-      <br />
       <span class="error" ng-show="data.bNum === 0">{{ msg.divError }}</span>
     </div>
     <br />
     <div ng-controller="aCtrl">
-      <!-- <button ng-click="printA()">print</button> -->
+      <button ng-click="printA()">print 1 to A</button>
+      <span class="error" ng-show="data.aNum < 1">{{ msg.NegAError }}</span>
       <br />
-      <br />
-      <span class="error" ng-show="data.aNum < 0">{{ msg.NegAError }}</span>
+      <div>
+        <br />
+        <span ng-repeat="element in aArr">{{ element + " " }}</span>
+      </div>
     </div>
-    <!-- <div ng-controller="aCtrl">
-      <button ng-click="printA()">print</button>
+    <br />
+    <div ng-controller="bCtrl">
+      <button ng-click="printB()">print B to 1</button>
+      <span class="error" ng-show="data.bNum < 1">{{ msg.NegBError }}</span>
       <br />
-      <br />
-      <span class="error" ng-show="data.aNum < 0">{{ msg.NegAError }}</span>
-    </div> -->
+      <div>
+        <br />
+        <span ng-repeat="element in bArr">{{ element + " " }}</span>
+      </div>
+    </div>
     <br />
   </body>
 </html>
